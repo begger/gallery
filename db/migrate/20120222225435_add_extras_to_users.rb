@@ -5,6 +5,5 @@ class AddExtrasToUsers < ActiveRecord::Migration
     add_column :users, :avatar, :string
 
     add_column :users, :data, :binary
-
   end
 end

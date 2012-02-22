@@ -14,4 +14,3 @@
             = f.password_field :password_confirmation, :placeholder => 'Confirm your password', :class => 'xlarge'
             .form-actions
               = f.submit 'Sign up', :class => 'btn-primary btn-large'
-              = link_to 'Or, sign up with Facebook', omniauth_authorize_path(:user, :facebook)

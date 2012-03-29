@@ -1,0 +1,68 @@
+.welcome {
+  #bg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #666 no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+
+    &:after {
+      background: transparent url(asset-path('pattern.png', image));
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      z-index: 0;
+      content: '';
+    }
+  }
+
+  .hero-unit {
+    @include translucent-background(#000,.8);
+    width: 480px; // plus 60px padding
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -138px;
+    margin-left: -310px;
+
+    h1 {
+      color: #ccc;
+      text-shadow: 1px 2px 0 rgba(0,0,0,.7);
+      font-weight: 300;
+    }
+
+    p {
+      color: #ccc;
+      text-shadow: 1px 1px 0 rgba(0,0,0,.7);
+    }
+
+    strong {
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome {
+    .hero-unit {
+      position: relative;
+      width: auto;
+      top: auto;
+      left: auto;
+      margin: 0 20px 20px;
+      padding: 20px;
+
+      h1 {
+        margin-bottom: 18px;
+      }
+    }
+  }
+}

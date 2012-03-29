@@ -1,16 +1,7 @@
-.container
-  .content
-    .row
-      .span8
-        = alert_message_for(flash)
-        %h1 Welcome!
-        %p This can be some welcome message.
-      .span4
-        .well.welcome-signup
-          %h2 Join #{t('application.name')} right now!
-          = simple_form_for(@user, :as => :user, :url => registration_path(:user), :html => { :class => 'form-stacked' }) do |f|
-            = f.email_field :email, :placeholder => 'Email', :class => 'xlarge'
-            = f.password_field :password, :placeholder => 'Password', :class => 'xlarge'
-            = f.password_field :password_confirmation, :placeholder => 'Confirm your password', :class => 'xlarge'
-            .form-actions
-              = f.submit 'Sign up', :class => 'btn-primary btn-large'
+#bg{:style => "background-image: url('#{asset_path('photos/willis.jpg')}');"}
+
+.hero-unit
+  %h1
+    Hello,<br>
+    I'm <strong>Sam Nicholls</strong>.
+  %p I love <strong>photography</strong>, <strong>guitars</strong>, <strong>music</strong> and <strong>life</strong>.

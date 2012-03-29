@@ -1,8 +1,6 @@
 Gallery::Application.routes.draw do
   mount Resque::Server.new, :at => '/resque'
 
-  match 'dashboard' => 'dashboard#index', :as => :dashboard
-
   root :to => 'welcome#index'
 
   devise_for :users

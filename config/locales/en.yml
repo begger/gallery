@@ -4,7 +4,7 @@
 en:
   application:
     name: "Sam Nicholls"
-    slogan: "Portfolio"
+    slogan: "Gallery"
   alerts:
     headings:
       default: "Heads up!"

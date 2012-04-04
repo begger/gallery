@@ -12,3 +12,4 @@
             = f.input :password_confirmation, :required => true
           .form-actions
             = f.button :submit, 'Sign up', :class => 'btn-primary btn-large'
+            = link_to 'Or, sign up using Facebook', omniauth_authorize_path(resource_name, :facebook)

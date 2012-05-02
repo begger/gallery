@@ -1,9 +1,14 @@
 Gallery::Application.routes.draw do
+  match 'admin' => 'admin#index'
+
+  resources :photos
+  resources :photo_sets
+
+  devise_for :users
+
   mount Resque::Server.new, :at => '/resque'
 
   root :to => 'welcome#index'
-
-  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

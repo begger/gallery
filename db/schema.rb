@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222225435) do
+ActiveRecord::Schema.define(:version => 20120416161925) do
+
+  create_table "photo_sets", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "image"
+    t.integer  "photo_set_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

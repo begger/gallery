@@ -1,0 +1,17 @@
+.container
+  .content
+    .row
+      .span12= alert_message_for(flash)
+
+    .page-header
+      %h1 Admin
+
+    .row
+      .span12
+        %h2 Welcome, <strong>#{current_user.email}</strong>.
+
+        %p Here is your user data...
+
+        %pre
+          %code
+            = current_user.to_yaml

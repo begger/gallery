@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   serialize :data
 
   mount_uploader :avatar, AvatarUploader
+
+  def admin?
+    role == 'admin'
+  end
 end

@@ -1,0 +1,36 @@
+.container
+  .content
+    .row
+      .span12= alert_message_for(flash)
+
+    .page-header
+      %h1
+        Photo Sets
+        %small Collections of photos
+
+    %h2 Choose a photo set
+
+    .row
+      .span12
+        %table.table.table-bordered.table-striped
+          %thead
+            %tr
+              %th Name
+              - if user_signed_in? && current_user.admin?
+                %th
+          %tbody
+            - @photo_sets.each do |photo_set|
+              %tr
+                %td= link_to photo_set.name, photo_set
+                - if user_signed_in? && current_user.admin?
+                  %td
+                    = link_to 'Show', photo_set
+                    = link_to 'Edit', edit_photo_set_path(photo_set)
+                    = link_to 'Destroy', photo_set, :confirm => 'Are you sure?', :method => :delete
+
+    .row
+      .span12
+        %p
+          - if user_signed_in? && current_user.admin?
+            = link_to 'New photo set', new_photo_set_path, :class => 'btn btn-primary'
+          = link_to 'Back', root_path

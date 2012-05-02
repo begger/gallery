@@ -1,19 +1,19 @@
 (function() {
 
   $.validator.setDefaults({
-    errorClass: "error",
-    validClass: "success",
-    errorElement: "span",
+    errorClass: 'error',
+    validClass: 'success',
+    errorElement: 'span',
     highlight: function(element, errorClass, validClass) {
       var $obj;
       $obj = element.type === 'radio' ? this.findByName(element.name) : $(element);
-      return $obj.parents("div.control-group").removeClass(validClass).addClass(errorClass);
+      return $obj.parents('div.control-group').removeClass(validClass).addClass(errorClass);
     },
     unhighlight: function(element, errorClass, validClass) {
       var $obj;
       $obj = element.type === 'radio' ? this.findByName(element.name) : $(element);
       $obj.next('span.help-inline.' + errorClass).remove();
-      return $obj.parents("div.control-group").removeClass(errorClass).addClass(validClass);
+      return $obj.parents('div.control-group').removeClass(errorClass).addClass(validClass);
     },
     errorPlacement: function(error, element) {
       if (element.siblings().length > 0) {
@@ -50,14 +50,20 @@
     return $(this.settings.errorElement + '.' + errorClass, this.errorContext);
   };
 
+  $.validator.prototype.optional = function(element) {
+    return $(element).hasClass('optional') || (!$.validator.methods.required.call(this, $.trim(element.value), element) && 'dependency-mismatch');
+  };
+
   $.validator.prototype.showLabel = function(element, message) {
     var label;
     label = this.errorsFor(element);
     if (label.length === 0) {
       var railsGenerated = $(element).next('span.help-inline');
       if (railsGenerated.length) {
-        railsGenerated.attr('for', this.idOrName(element))
-        railsGenerated.attr('generated', 'true');
+        railsGenerated.attr({
+          'for': this.idOrName(element),
+          'generated': 'true'
+        });
         label = railsGenerated;
       }
     }
@@ -67,7 +73,7 @@
     } else {
       label = $('<' + this.settings.errorElement + '/>').attr({
         'for': this.idOrName(element),
-        generated: true
+        'generated': true
       }).addClass(this.settings.errorClass).html(message || '').addClass('help-inline');
       if (this.settings.wrapper) {
         label = label.hide().show().wrap('<' + this.settings.wrapper + '/>').parent();

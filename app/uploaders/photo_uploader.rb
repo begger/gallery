@@ -1,10 +1,9 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class PhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include Sprockets::Helpers::RailsHelper
   include Sprockets::Helpers::IsolatedHelper
 
   # Choose what kind of storage to use for this uploader:
-  # storage :file
   if Rails.env.test?
     storage :file
   else
@@ -19,7 +18,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    asset_path 'avatar.png'
+    asset_path('default.png')
   end
 
   # Process files as they are uploaded:
@@ -29,11 +28,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
-  process :resize_to_fill => [200, 200]
+  process :resize_to_fill => [800, 800]
 
   # Create different versions of your uploaded files:
-  version :tiny do
-    process :resize_to_fill => [20, 20]
+  version :thumbnail do
+    process :resize_to_fill => [100, 100]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -45,6 +44,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
-  #   'something.jpg' if original_filename
+  #   "something.jpg" if original_filename
   # end
 end

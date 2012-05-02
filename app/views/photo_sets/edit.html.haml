@@ -1,0 +1,20 @@
+.container
+  .content
+    .row
+      .span12= alert_message_for(flash)
+
+    .page-header
+      %h1
+        Photo Set
+        %small Edit
+
+    %h2= @photo_set.name
+
+    .row
+      .span12
+        = render 'form'
+
+    .row
+      .span12
+        = link_to 'Show', @photo_set, :class => 'btn btn-primary'
+        = link_to 'Back', photo_sets_path

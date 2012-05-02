@@ -7,7 +7,6 @@ gem 'rails', '3.2.2'
 
 gem 'mysql2'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -37,48 +36,49 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem "bootstrap-sass", :git => "git://github.com/thomas-mcdonald/bootstrap-sass"
-gem "bootstrap_kaminari", :git => "git://github.com/tonycoco/bootstrap_kaminari.git"
-gem "carrierwave"
-gem "devise"
-gem "fog"
-gem "haml-rails"
-gem "kaminari", :git => "git://github.com/amatsuda/kaminari.git"
-gem "mini_magick"
-gem "omniauth"
-gem "omniauth-facebook"
-gem "omniauth-twitter"
-gem "resque", :require => "resque/server"
-gem "settingslogic"
-gem "simple_form", :git => "git://github.com/plataformatec/simple_form.git"
-gem "cancan"
+gem 'bootstrap-sass'
+gem 'bootstrap_kaminari', :git => 'git://github.com/tonycoco/bootstrap_kaminari.git'
+gem 'carrierwave'
+gem 'devise'
+gem 'fog'
+gem 'haml-rails'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'resque', :require => 'resque/server'
+gem 'settingslogic'
+gem 'simple_form'
+gem 'cancan'
+
 group :development do
-  gem "capistrano"
-  gem "foreman"
-  gem "rails-footnotes"
-  gem "ruby-debug19", :require => "ruby-debug"
-  gem "taps"
-  gem "added_methods"
-  gem "awesome_print"
-  gem "brice"
-  gem "looksee"
-  gem "what_methods"
+  gem 'capistrano'
+  gem 'foreman'
+  gem 'rails-footnotes'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'taps'
+  gem 'added_methods'
+  gem 'awesome_print'
+  gem 'brice'
+  gem 'looksee'
+  gem 'what_methods'
 end
 
 group :development, :test do
-  gem "mysql2"
-  gem "rspec-rails"
-  gem "syntax"
+  gem 'mysql2'
+  gem 'rspec-rails'
+  gem 'syntax'
 end
 
 group :test do
-  gem "capybara"
-  gem "cucumber-rails"
-  gem "database_cleaner"
-  gem "factory_girl_rails"
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
 end
 
 group :production do
-  gem "pg"
-  gem "thin"
+  gem 'pg'
+  gem 'thin'
 end

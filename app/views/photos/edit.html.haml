@@ -16,5 +16,5 @@
 
     .row
       .span12
-        = link_to 'Show', @photo, :class => 'btn btn-primary'
-        = link_to 'Back', photo_sets_path
+        = link_to 'Show', photo_set_photo_path(@photo_set, @photo), :class => 'btn'
+        = link_to 'Back', photo_sets_photos_path(@photo_set)

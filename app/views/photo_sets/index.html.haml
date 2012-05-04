@@ -6,9 +6,9 @@
     .page-header
       %h1
         Photo Sets
-        %small Collections of photos
+        %small Collections of Photos
 
-    %h2 Choose a photo set
+    %h2 Choose a Photo Set
 
     .row
       .span12
@@ -32,5 +32,5 @@
       .span12
         %p
           - if user_signed_in? && current_user.admin?
-            = link_to 'New photo set', new_photo_set_path, :class => 'btn btn-primary'
+            = link_to 'New Photo Set', new_photo_set_path, :class => 'btn btn-primary'
           = link_to 'Back', root_path

@@ -11,10 +11,33 @@
     %h2= @photo_set.name
 
     .row
-      .span12
+      .span8
         = render 'form'
+      .span4
+        .well
+          %h3 Photos in this Photo Set
+
+          %table.table.table-bordered.table-striped.table-condensed
+            %thead
+              %tr
+                %th Name
+                %th Description
+                %th Image
+                %th
+            %tbody
+              - @photo_set.photos.each do |photo|
+                %tr
+                  %td= photo.name
+                  %td= photo.description
+                  %td= image_tag(photo.image.thumbnail.url)
+                  %td
+                    = link_to 'Show', photo_set_photo_path(@photo_set, photo)
+                    = link_to 'Edit', edit_photo_set_photo_path(@photo_set, photo)
+                    = link_to 'Destroy', photo_set_photo_path(@photo_set, photo), :confirm => 'Are you sure?', :method => :delete
+
+          %p= link_to 'Add a Photo', new_photo_set_photo_path(@photo_set), :class => 'btn btn-mini'
 
     .row
       .span12
-        = link_to 'Show', @photo_set, :class => 'btn btn-primary'
+        = link_to 'Show', @photo_set, :class => 'btn'
         = link_to 'Back', photo_sets_path

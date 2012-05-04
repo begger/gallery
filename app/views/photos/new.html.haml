@@ -6,9 +6,9 @@
     .page-header
       %h1
         Photo
-        %small New
+        %small= @photo_set.name
 
-    %h2 Create a new photo
+    %h2 Create a new Photo
 
     .row
       .span12
@@ -16,4 +16,4 @@
 
     .row
       .span12
-        = link_to 'Back', photos_path
+        = link_to 'Back', photo_set_photos_path(@photo_set)

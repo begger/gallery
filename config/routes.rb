@@ -1,8 +1,9 @@
 Gallery::Application.routes.draw do
   match 'admin' => 'admin#index'
 
-  resources :photos
-  resources :photo_sets
+  resources :photo_sets do
+    resources :photos
+  end
 
   devise_for :users
 

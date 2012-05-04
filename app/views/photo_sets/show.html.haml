@@ -6,24 +6,24 @@
     .page-header
       %h1
         = @photo_set.name
-        %small Photo set
+        %small Photo Set
 
     %h2= @photo_set.description
 
     .row
       .span12
-        %table.table.table-bordered.table-striped
-          %thead
-            %tr
-              %th
-              %th Name
-          %tbody
+        - if @photo_set.photos.blank?
+          There are no Photos for this Photo Set yet.
+        - else
+          %ul.thumbnails
             - @photo_set.photos.each do |photo|
-              %tr
-                %td= link_to image_tag(photo.image.thumbnail.url, :alt => photo.name, :class => 'thumbnail'), photo
-                %td= link_to photo.name, photo
+              %li
+                .thumbnail
+                  = link_to image_tag(photo.image.thumbnail.url, :alt => photo.name), [@photo_set, photo]
+                  .caption
+                    %h5= link_to photo.name, [@photo_set, photo]
+                    %p= photo.description
 
-    .row
       .span12
         %p
           - if user_signed_in? && current_user.admin?

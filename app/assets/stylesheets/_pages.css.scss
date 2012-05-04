@@ -1,4 +1,4 @@
-.welcome {
+.pages {
   #bg {
     position: fixed;
     top: 0px;
@@ -37,11 +37,20 @@
       color: #ccc;
       text-shadow: 1px 2px 0 rgba(0,0,0,.7);
       font-weight: 300;
+      margin-bottom: 24px;
     }
 
     p {
       color: #ccc;
       text-shadow: 1px 1px 0 rgba(0,0,0,.7);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        font-weight: bold;
+      }
     }
 
     strong {

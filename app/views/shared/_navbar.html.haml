@@ -23,3 +23,4 @@
                 %li= link_to 'Log out', destroy_user_session_path, :method => :delete
         %ul.nav.pull-right
           %li= link_to 'The Gallery', photo_sets_path, :class => controller_name.match(/photo/) ? 'active' : nil
+          %li= link_to 'Contact', contact_path, :class => action_name.match(/contact/) ? 'active' : nil

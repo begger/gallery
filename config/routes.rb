@@ -8,7 +8,9 @@ Gallery::Application.routes.draw do
 
   mount Resque::Server.new, :at => '/resque'
 
-  root :to => 'welcome#index'
+  match 'contact' => 'pages#contact'
+
+  root :to => 'pages#welcome'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

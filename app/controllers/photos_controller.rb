@@ -1,13 +1,6 @@
 class PhotosController < ApplicationController
   # NOTE: Nested in PhotoSet resource
 
-  # GET /photo_set/1/photos
-  # GET /photo_set/1/photos.json
-  def index
-    @photo_set = PhotoSet.find(params[:photo_set_id])
-    redirect_to @photo_set
-  end
-
   # GET /photo_set/1/photos/1
   # GET /photo_set/1/photos/1.json
   def show
@@ -79,7 +72,7 @@ class PhotosController < ApplicationController
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to photo_set_photos_url(@photo_set) }
+      format.html { redirect_to photo_set_url(@photo_set) }
       format.json { head :no_content }
     end
   end

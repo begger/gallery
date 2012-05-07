@@ -13,9 +13,15 @@
     .row
       .span12
         = image_tag(@photo.image.url, :alt => @photo.name, :class => 'thumbnail')
+
     .row
       .span12
         %p
           - if user_signed_in? && current_user.admin?
             = link_to 'Edit', edit_photo_set_photo_path(@photo_set, @photo), :class => 'btn btn-primary'
-          = link_to 'Back', photo_set_photos_path(@photo_set)
+          = link_to 'Back', photo_set_path(@photo_set)
+
+  %footer.footer
+    %p
+      All images and content copyright Sam Nicholls.
+      Images may not be used without prior express written consent.

@@ -24,6 +24,7 @@
                     %h5= link_to photo.name, [@photo_set, photo]
                     %p= photo.description
 
+    .row
       .span12
         %p
           - if user_signed_in? && current_user.admin?

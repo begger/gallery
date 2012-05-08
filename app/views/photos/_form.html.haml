@@ -4,7 +4,7 @@
   %fieldset
     = f.input :name, :required => true
     = f.input :description, :required => true
-    = f.input :image, :required => true, :as => :image_preview, :input_html => { :preview_version => :tiny }
+    = f.input :image, :required => true, :as => :image_preview, :input_html => { :preview_version => :thumbnail }
 
     .form-actions
       = f.button :submit, :class => 'btn-primary btn-large'

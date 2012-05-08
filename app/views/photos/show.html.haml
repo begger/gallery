@@ -12,7 +12,7 @@
 
     .row
       .span12
-        = image_tag(@photo.image.url, :alt => @photo.name, :class => 'thumbnail')
+        %p= image_tag(@photo.image.url, :alt => @photo.name, :class => 'thumbnail')
 
     .row
       .span12

@@ -1,8 +1,12 @@
 .photo_sets {
   .thumbnails {
     .thumbnail {
-      img {
-        width: 100%;
+      a.with_image {
+        display: block;
+
+        img {
+          width: 100%;
+        }
       }
     }
   }

@@ -17,7 +17,7 @@
         - else
           %ul.thumbnails
             - @photo_set.photos.each do |photo|
-              %li
+              %li.span3
                 .thumbnail
                   = link_to image_tag(photo.image.thumbnail.url, :alt => photo.name), [@photo_set, photo]
                   .caption

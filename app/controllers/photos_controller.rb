@@ -51,6 +51,7 @@ class PhotosController < ApplicationController
   # PUT /photo_set/1/photos/1
   # PUT /photo_set/1/photos/1.json
   def update
+    @photo_set = PhotoSet.find(params[:photo_set_id])
     @photo = Photo.find(params[:id])
 
     respond_to do |format|

@@ -1,9 +1,9 @@
-= simple_form_for(@photo_set) do |f|
+= simple_form_for(@photo_set, :html => { :method => :put, :class => 'form-horizontal validate' }) do |f|
   = f.error_notification
 
   %fieldset
     = f.input :name, :required => true
-    = f.input :description, :required => true
+    = f.input :description, :required => true, :as => :text, :input_html => { :maxlength => 255 }
 
-    .form-actions
-      = f.button :submit, :class => 'btn-primary btn-large'
+  .form-actions
+    = f.button :submit, :class => 'btn-primary btn-large'
